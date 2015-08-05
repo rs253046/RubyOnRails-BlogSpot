@@ -1,0 +1,51 @@
+
+
+
+
+
+
+
+
+
+
+<%= link_to "Like", article_upvote_create_path(@article), class: "navbar-brand" , :method => :get  %>|<%= link_to "Unlike", article_upvote_destroy_path(@article), class: "navbar-brand", :method => :get  %>
+
+<div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+               
+  <strong>Title:</strong>
+  <%= @article.title %>
+  <p class="post-meta">Posted by <%=@article.user.email%> on <%= @article.created_at.strftime("%B %d, %Y") %>|
+                 <%if current_user%>
+                    <%if current_user.id == @article.user.id%>
+                        <%= link_to 'Edit', edit_article_path(@article) %>|
+                        <%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
+                        <%end%>
+                        <%end%>
+
+  </p>
+
+<hr />
+
+<div class="well">
+  
+  <%= @article.body %>
+  </div>
+  <div id="comments">
+
+    <h2><%= @article.comments.count %> Comments</h2>
+    <%= render @article.comments %>
+ 
+    <h3>Add a comment:</h3>
+    <%= render "comments/form" %>
+  </div>
+
+
+
+
+
+                    
+                </div>
+            </div>

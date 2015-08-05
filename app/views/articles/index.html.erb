@@ -1,0 +1,76 @@
+<div class="container">
+     <div id="blog" class="row"> 
+     <% @articles.each do |article| %>
+                
+                                   <div class="col-md-10 blogShort">
+                     <h1><%= article.title%></h1>
+                     <img src="http://www.kaczmarek-photo.com/wp-content/uploads/2012/06/guinnes-150x150.jpg" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">
+                     
+                         
+                     <article><p>
+                         <%= article.body.first(700) %>.....  
+                         </p>
+
+                        
+                    </article>
+                   <ul class="list-inline list-unstyled">
+  			<li><span><i class="glyphicon glyphicon-calendar"></i> <%= article.created_at.strftime("%B %d, %Y") %>|Submitted <%= time_ago_in_words(article.created_at) %> Ago </span></li>
+            <li>|</li>
+            <span><i class="glyphicon glyphicon-comment"></i><%= article.comments.count%> Comments</span>
+            <li>|</li>
+            <li>
+                 Posted by <%=article.user.firstname%>
+            </li>
+            <li>|</li>
+            <li>
+            <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
+              <span><i class="fa fa-facebook-square"></i></span>
+              <span><i class="fa fa-twitter-square"></i></span>
+              <span><i class="fa fa-google-plus-square"></i></span>
+            </li>
+			</ul>
+
+
+
+
+
+
+
+                    <%= link_to 'Read More....' , article, class: "btn btn-blog pull-right marginBottom10"%> 
+                    
+                 </div>
+                 <%end%>
+                  </div>
+</div>
+
+
+
+<style>
+ .blogShort{ border-bottom:1px solid #ddd;}
+.add{background: #333; padding: 10%; height: 300px;}
+
+
+
+/*.btn-blog {
+    color: #ffffff;
+    background-color: #37d980;
+    border-color: #37d980;
+    border-radius:0;
+    margin-bottom:10px
+}*/
+.btn-blog:hover,
+.btn-blog:focus,
+.btn-blog:active,
+.btn-blog.active,
+.open .dropdown-toggle.btn-blog {
+    color: white;
+    background-color:#0099FF;
+    border-color: #0099FF;
+}
+ h2{color:#34ca78;}
+ .margin10{margin-bottom:10px; margin-right:10px;}
+</style>
+
+
+
+

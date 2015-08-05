@@ -1,0 +1,2 @@
+class PopularpostsController < ApplicationController
+end

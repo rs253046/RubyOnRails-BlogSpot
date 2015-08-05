@@ -1,0 +1,8 @@
+<h1>Log In</h1>
+<%=form_tag log_in_path, html: {class: 'form'} do%>
+<%=label_tag :email %>
+<%=text_field_tag :email, "" , class: "form-control input-lg"  %>
+<%=label_tag :password %>
+<%=password_field_tag :password, "" , class: "form-control input-lg"%>
+<%=submit_tag "Log in", class: "btn btn-lg btn-primary btn-block signup-btn" %>
+<%end%>

@@ -1,0 +1,3 @@
+class LatestpostsController < ApplicationController
+	
+end

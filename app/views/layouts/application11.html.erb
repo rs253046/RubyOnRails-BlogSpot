@@ -1,0 +1,92 @@
+<%= stylesheet_link_tag "application", :media => "all" %>
+<%= javascript_include_tag "application" %>
+
+
+
+
+
+ 
+<h1>Listing Articles</h1>
+
+
+    
+
+
+
+<div class="well">
+ <% @articles.each do |article| %>
+                    
+                <div class="post-preview">
+                    
+                        <h2 class="post-title">
+                            <%= link_to article.title , article %>
+                        </h2>
+                        <br />
+                         
+                    <p class="post-meta">Posted by <%=article.user.email%> on <%= article.created_at.strftime("%B %d, %Y") %>|Submitted <%= time_ago_in_words(article.created_at) %> Ago
+                    
+                    </p>
+                </div>
+                <hr>
+
+               
+
+<%end%>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+     <div id="blog" class="row"> 
+     <% @articles.each do |article| %>
+                
+                                   <div class="col-md-10 blogShort">
+                     <h1>Title 1</h1>
+                     <img src="http://www.kaczmarek-photo.com/wp-content/uploads/2012/06/guinnes-150x150.jpg" alt="post img" class="pull-left img-responsive thumb margin10 img-thumbnail">
+                     
+                         
+                     <article><p>
+                         <%= link_to article.title , article %>  
+                         </p>
+
+                         <p class="post-meta">Posted by <%=article.user.email%> on <%= article.created_at.strftime("%B %d, %Y") %>|Submitted <%= time_ago_in_words(article.created_at) %> Ago
+                    
+                    </p>
+                    </article>
+                     <a class="btn btn-blog pull-right marginBottom10" href="http://bootsnipp.com/user/snippets/2RoQ">READ MORE</a> 
+                 </div>
+                 <%end%>
+                  </div>
+</div>
+
+
+
+<style>
+ .blogShort{ border-bottom:1px solid #ddd;}
+.add{background: #333; padding: 10%; height: 300px;}
+
+
+
+.btn-blog {
+    color: #ffffff;
+    background-color: #37d980;
+    border-color: #37d980;
+    border-radius:0;
+    margin-bottom:10px
+}
+.btn-blog:hover,
+.btn-blog:focus,
+.btn-blog:active,
+.btn-blog.active,
+.open .dropdown-toggle.btn-blog {
+    color: white;
+    background-color:#34ca78;
+    border-color: #34ca78;
+}
+ h2{color:#34ca78;}
+ .margin10{margin-bottom:10px; margin-right:10px;}
+</style>

@@ -1,0 +1,46 @@
+
+
+
+<%if current_user %>
+
+<% @latests.each do |popular| %>
+
+<%  popular.counts = popular.upvotes.count%>
+
+
+
+
+<%popular.save  %>
+<%end%>
+
+    <%@latests = Article.all.order(' counts DESC').limit(3)%>
+    
+
+<% @latests.each do |latest| %>
+
+                <div class="post-preview">
+                    
+                        <h6 class="post-title">
+                            <%= link_to latest.title , latest %>
+                            <hr>
+                        </h6>
+                     
+                </div>
+                
+
+               
+
+<%end%>
+
+<%else%>
+
+<div>
+     <h4>Please login to see Pouplar post</h4>
+</div>
+
+                
+
+
+
+
+<%end%>
