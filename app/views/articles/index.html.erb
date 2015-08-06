@@ -14,7 +14,7 @@
                         
                     </article>
                    <ul class="list-inline list-unstyled">
-  			<li><span><i class="glyphicon glyphicon-calendar"></i> <%= article.created_at.strftime("%B %d, %Y") %>|Submitted <%= time_ago_in_words(article.created_at) %> Ago </span></li>
+  			<li><span><i class="icon-calendar"></i> <%= article.created_at.strftime("%B %d, %Y") %>|Submitted <%= time_ago_in_words(article.created_at) %> Ago </span></li>
             <li>|</li>
             <span><i class="glyphicon glyphicon-comment"></i><%= article.comments.count%> Comments</span>
             <li>|</li>
